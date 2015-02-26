@@ -29,12 +29,12 @@ browser.table[0][0] #row#cell
 browser.link href "/writing/articles"
 browser.link text: 'About'
 ```
-##Waitings
-#Selenium Wait
+#Waitings
+##Selenium Wait
 ```ruby
 browser.driver.manager.timeouts.implicit_wait = 3 #wait 3 seconds
 ```
-#Explicit Wait
+##Explicit Wait
 ```ruby
 browser.select_list(id: 'blah').wait_until_present
 browser.text_field(id: 'blash').when_present.set('hellowworld') #allows you to chain
