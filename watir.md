@@ -8,6 +8,10 @@ require 'watir'
 
 browser = Watir::Browser.new :ff #firefox
 browser.goto 'http://google.com'
+
+browser.refresh
+browser.quit
+browser.back
 ```
 ##Finding Elements
 ```ruby
@@ -28,6 +32,9 @@ browser.table[0][0] #row#cell
 #Type Link
 browser.link href "/writing/articles"
 browser.link text: 'About'
+
+#Array
+browser.ps #plural will grab array of element of all p's in this case
 ```
 #Waitings
 ##Selenium Wait
@@ -39,4 +46,26 @@ browser.driver.manager.timeouts.implicit_wait = 3 #wait 3 seconds
 browser.select_list(id: 'blah').wait_until_present
 browser.text_field(id: 'blash').when_present.set('hellowworld') #allows you to chain
 browser.button(value: 'Submit').wait_while_present #useful for loading icons
+```
+#Iteractions
+```ruby
+element.set 'Hello World' #send keys
+element.send_keys 'Hello World'
+
+element.html #returns html as string
+element.text #shows text as string
+element.value #shows value as string
+
+element.button(name: 'login').click
+
+browser.checkbox(:value 'checkbox1').set #tick checkbox
+browser.checkbox(:value 'checkbox1').clear #clear checkbox and textfiels
+browser.checkbox(:value 'checkbox1').checked? # checks if checked
+
+browser.select_list(id: 'list').select 'option1'
+browser.select_list(id: 'list').clear
+puts browser.select_list(id: 'list').options #list all options
+
+browser.radio(value: 'radio1').set
+browser.radio(value: 'radio1').clear
 ```
