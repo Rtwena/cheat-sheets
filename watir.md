@@ -33,6 +33,9 @@ browser.table[0][0] #row#cell
 browser.link href "/writing/articles"
 browser.link text: 'About'
 
+#Type Iframe
+browser.iframe(id: "omnibarDD").link(href: "/personal/login/login").click
+
 #Array
 browser.ps #plural will grab array of element of all p's in this case
 ```
